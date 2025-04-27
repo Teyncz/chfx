@@ -1,9 +1,8 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
 import { PrismaClient } from '@/src/app/generated/prisma';
 
 const prisma = new PrismaClient();
  
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req, res) {
   if (req.method === 'POST') {
 
     const currencies = await prisma.currencies.findMany();
